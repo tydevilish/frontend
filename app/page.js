@@ -10,6 +10,9 @@ export default function Home() {
         <h1 className="text-center font-extrabold text-7xl text-blue-500 hover:scale-200 duration-500 animate-pulse">
           Home Page
         </h1>
+                <h1 className="text-center font-extrabold text-7xl text-blue-500 hover:scale-200 duration-500 animate-pulse">
+          I'm Jirapat Papai
+        </h1>
       </div>
     </>
   );
