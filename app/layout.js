@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +20,71 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-purple-500/90 to-pink-500/90 backdrop-blur-md shadow-lg">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-20">
+              {/* Logo */}
+              <div className="flex-shrink-0">
+                <Link 
+                  href="/" 
+                  className="font-bold text-2xl text-white hover:text-purple-100 transition-all duration-300 ease-in-out"
+                >
+                  FRONTEND
+                </Link>
+              </div>
+
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex md:items-center md:space-x-8">
+                {[
+                  ['Home', '/'],
+                  ['About', '/about'],
+                  ['Services', '/services'],
+                  ['Contact', '/contact'],
+                ].map(([title, url]) => (
+                  <Link
+                    key={title}
+                    href={url}
+                    className="relative text-white group px-3 py-2"
+                  >
+                    <span className="relative z-10">{title}</span>
+                    <span className="absolute inset-x-0 bottom-0 h-0.5 bg-white transform scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+                  </Link>
+                ))}
+                <Link 
+                  href="/signup" 
+                  className="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-purple-100 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                >
+                  Sign Up
+                </Link>
+              </div>
+
+              {/* Mobile menu button */}
+              <div className="md:hidden">
+                <button 
+                  className="p-2 rounded-full text-white hover:bg-white/20 transition-all duration-300 focus:outline-none"
+                >
+                  <svg 
+                    className="h-6 w-6" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <main className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-600">
+      <div className="flex flex-col items-center justify-center min-h-screen ">
         <img 
           src="https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe8b6f41cf0.jpg" 
           alt="Mr. Jirapat Papai" 
