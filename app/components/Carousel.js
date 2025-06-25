@@ -2,7 +2,8 @@ import Image from 'next/image';
 export default function Carousel() {
     return (
         <div
-            className="position-fixed top-0 start-0 w-100 h-100 z-0"
+            className="w-100 min-vh-100"
+            style={{ position: "relative", zIndex: 0 }}
         >
             <div
                 id="mainCarousel"
@@ -18,7 +19,7 @@ export default function Carousel() {
                             alt="Mr. Jirapat Papai"
                             style={{ objectFit: "cover", height: "100vh" }}
                             width={1920}
-                            height={1080}
+                            height={690}
                         />
                     </div>
                     <div className="carousel-item h-100">

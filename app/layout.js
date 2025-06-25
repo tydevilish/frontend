@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import BootstrapClient from "./components/BootstrapClient";
 import Navigation from "./components/Navigation";
 import { Prompt } from 'next/font/google';
+import Footer from "./components/Footer";
 
 const prompt = Prompt({
   subsets: ['thai', 'latin'], // รองรับภาษาไทย
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
       <body className={prompt.className}>
         <Navigation />
         {children}
+        <Footer />
         <BootstrapClient />
       </body>
     </html>

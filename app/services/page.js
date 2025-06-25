@@ -10,6 +10,7 @@ export default function Services() {
         <h1 className="text-center font-extrabold text-7xl text-yellow-500 hover:scale-200 duration-500 animate-pulse">
           Services Page
         </h1>
+        
       </div>
     </>
   );
