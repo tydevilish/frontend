@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export default function Carousel() {
     return (
         <div
@@ -11,27 +12,33 @@ export default function Carousel() {
             >
                 <div className="carousel-inner h-100">
                     <div className="carousel-item active h-100">
-                        <img
+                        <Image
                             src="/silder/1.jpg"
                             className="d-block w-100 h-100"
                             alt="Mr. Jirapat Papai"
                             style={{ objectFit: "cover", height: "100vh" }}
+                            width={1920}
+                            height={1080}
                         />
                     </div>
                     <div className="carousel-item h-100">
-                        <img
+                        <Image
                             src="/silder/2.jpg"
                             className="d-block w-100 h-100"
                             alt="Sample 2"
                             style={{ objectFit: "cover", height: "100vh" }}
+                            width={1920}
+                            height={1080}
                         />
                     </div>
                     <div className="carousel-item h-100">
-                        <img
+                        <Image
                             src="/silder/3.jpg"
                             className="d-block w-100 h-100"
                             alt="Sample 3"
                             style={{ objectFit: "cover", height: "100vh" }}
+                            width={1920}
+                            height={1080}
                         />
                     </div>
                 </div>
