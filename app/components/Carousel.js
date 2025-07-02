@@ -140,7 +140,7 @@ export default function Carousel() {
                     data-bs-slide="prev"
                     style={{ opacity: "0.8" }}
                 >
-                    <div className="bg-white bg-opacity-20 rounded-circle px-3 py-2 backdrop-blur">
+                    <div className="bg-white bg-opacity-10 rounded-circle px-3 py-2 backdrop-blur">
                         <i className="bi bi-chevron-left text-white fs-2"></i>
                     </div>
                     <span className="visually-hidden">Previous</span>
@@ -152,7 +152,7 @@ export default function Carousel() {
                     data-bs-slide="next"
                     style={{ opacity: "0.8" }}
                 >
-                    <div className="bg-white bg-opacity-20 rounded-circle px-3 py-2 backdrop-blur">
+                    <div className="bg-white bg-opacity-10 rounded-circle px-3 py-2 backdrop-blur">
                         <i className="bi bi-chevron-right text-white fs-2"></i>
                     </div>
                     <span className="visually-hidden">Next</span>

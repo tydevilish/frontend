@@ -8,7 +8,7 @@ export default function Services() {
           className="w-64 h-auto rounded-full shadow-lg mb-8 animate-spin"
         />
         <h1 className="text-center font-extrabold text-7xl text-yellow-500 hover:scale-200 duration-500 animate-pulse">
-          Services Page
+          บริการของเรา
         </h1>
         
       </div>

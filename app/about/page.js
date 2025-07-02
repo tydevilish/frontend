@@ -2,18 +2,18 @@
 
 export default function About() {
   const skills = [
-    { name: "React & Next.js", level: 95, icon: "bi-code-slash" },
-    { name: "JavaScript/TypeScript", level: 90, icon: "bi-braces" },
+    { name: "React & Next.js", level: 70, icon: "bi-code-slash" },
+    { name: "JavaScript/TypeScript", level: 70, icon: "bi-braces" },
     { name: "UI/UX Design", level: 85, icon: "bi-palette" },
     { name: "Node.js", level: 80, icon: "bi-server" },
-    { name: "Database Design", level: 75, icon: "bi-database" },
-    { name: "Mobile Development", level: 70, icon: "bi-phone" }
+    { name: "Database", level: 75, icon: "bi-database" },
+    { name: "Mobile Development", level: 10, icon: "bi-phone" }
   ];
 
   const experiences = [
     {
-      year: "2023 - ปัจจุบัน",
-      title: "Full stack Developer",
+      year: "2024",
+      title: "Full Stack Developer",
       company: "Chiangmai Software And Hardware Service",
       description: "พัฒนาและดูแลระบบเว็บแอปพลิเคชันขนาดใหญ่ ใช้เทคโนโลยี React, Next.js TypeScript JavaScript"
     },
@@ -39,14 +39,19 @@ export default function About() {
                   <span className="text-primary d-block">จิรภัทร์ ป่าไพร</span>
                 </h1>
                 <p className="lead text-muted mb-4 animate-fade-in-delay-1">
-                  Fullstack Developer ที่หลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงาม 
+                  Fullstack Developer ที่หลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงาม
                   และใช้งานง่าย ด้วยความเชี่ยวชาญด้านเทคโนโลยีที่ทันสมัย
                 </p>
                 <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate-fade-in-delay-2">
-                  <button className="btn btn-primary btn-lg px-4 rounded-pill">
+                  <a
+                    className="btn btn-primary btn-lg px-4 rounded-pill"
+                    href="https://jirapatpapai.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <i className="bi bi-envelope me-2"></i>
                     ติดต่อเรา
-                  </button>
+                  </a>
                   <button className="btn btn-outline-primary btn-lg px-4 rounded-pill">
                     <i className="bi bi-download me-2"></i>
                     ดาวน์โหลด CV
@@ -58,7 +63,7 @@ export default function About() {
               <div className="text-center position-relative">
                 <div className="profile-image-container">
                   <div className="bg-primary rounded-circle mx-auto d-flex align-items-center justify-content-center profile-placeholder">
-                    <i className="bi bi-person-fill text-white" style={{fontSize: '8rem'}}></i>
+                    <i className="bi bi-person-fill text-white" style={{ fontSize: '8rem' }}></i>
                   </div>
                   {/* Floating Elements */}
                   <div className="floating-element floating-1">
@@ -103,22 +108,22 @@ export default function About() {
               <div className="row g-4">
                 <div className="col-md-6">
                   <p className="text-muted">
-                    ผมเป็น Frontend Developer ที่มีประสบการณ์มากกว่า 4 ปี 
+                    ผมเป็น Frontend Developer ที่มีประสบการณ์มากกว่า 4 ปี
                     ในการพัฒนาเว็บแอปพลิเคชันและมือถือ ด้วยความหลงใหลในการออกแบบ
                     และเทคโนโลยีที่ทันสมัย
                   </p>
                   <p className="text-muted">
-                    ผมเชื่อว่าการออกแบบที่ดีต้องมาพร้อมกับประสบการณ์ผู้ใช้ที่ยอดเยี่ยม 
+                    ผมเชื่อว่าการออกแบบที่ดีต้องมาพร้อมกับประสบการณ์ผู้ใช้ที่ยอดเยี่ยม
                     และประสิทธิภาพที่เร็วและเสถียร
                   </p>
                 </div>
                 <div className="col-md-6">
                   <p className="text-muted">
-                    นอกจากการเขียนโค้ดแล้ว ผมยังสนใจในด้าน UI/UX Design, 
+                    นอกจากการเขียนโค้ดแล้ว ผมยังสนใจในด้าน UI/UX Design,
                     การเรียนรู้เทคโนโลジีใหม่ๆ และการแชร์ความรู้กับคนอื่น
                   </p>
                   <p className="text-muted">
-                    เป้าหมายของผมคือการสร้างผลงานที่ไม่เพียงแต่สวยงาม 
+                    เป้าหมายของผมคือการสร้างผลงานที่ไม่เพียงแต่สวยงาม
                     แต่ยังตอบโจทย์ความต้องการของผู้ใช้อย่างแท้จริง
                   </p>
                 </div>
@@ -131,28 +136,28 @@ export default function About() {
                   <li className="mb-2 d-flex">
                     <i className="bi bi-person text-primary me-3 mt-1"></i>
                     <div>
-                      <strong>ชื่อ:</strong><br/>
+                      <strong>ชื่อ:</strong><br />
                       <span className="text-muted">จิรภัทร์ ป่าไพร</span>
                     </div>
                   </li>
                   <li className="mb-2 d-flex">
                     <i className="bi bi-geo-alt text-primary me-3 mt-1"></i>
                     <div>
-                      <strong>สถานที่:</strong><br/>
+                      <strong>สถานที่:</strong><br />
                       <span className="text-muted">เชียงใหม่, ประเทศไทย</span>
                     </div>
                   </li>
                   <li className="mb-2 d-flex">
                     <i className="bi bi-envelope text-primary me-3 mt-1"></i>
                     <div>
-                      <strong>อีเมล:</strong><br/>
+                      <strong>อีเมล:</strong><br />
                       <span className="text-muted">meawpain12@gmail.com</span>
                     </div>
                   </li>
                   <li className="mb-2 d-flex">
                     <i className="bi bi-telephone text-primary me-3 mt-1"></i>
                     <div>
-                      <strong>โทรศัพท์:</strong><br/>
+                      <strong>โทรศัพท์:</strong><br />
                       <span className="text-muted">+66 92 678 7438</span>
                     </div>
                   </li>
@@ -178,10 +183,10 @@ export default function About() {
                     <i className={`${skill.icon} text-primary fs-3 me-3`}></i>
                     <div className="flex-grow-1">
                       <h6 className="fw-bold mb-1">{skill.name}</h6>
-                      <div className="progress" style={{height: '6px'}}>
-                        <div 
-                          className="progress-bar bg-primary" 
-                          style={{width: `${skill.level}%`}}
+                      <div className="progress" style={{ height: '6px' }}>
+                        <div
+                          className="progress-bar bg-primary"
+                          style={{ width: `${skill.level}%` }}
                         ></div>
                       </div>
                     </div>
@@ -205,8 +210,8 @@ export default function About() {
             <div className="col-lg-8">
               {experiences.map((exp, idx) => (
                 <div key={idx} className="timeline-item d-flex mb-4">
-                  <div className="timeline-marker bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold me-4" 
-                       style={{width: '50px', height: '50px', minWidth: '50px'}}>
+                  <div className="timeline-marker bg-primary rounded-circle d-flex align-items-center justify-content-center text-white fw-bold me-4"
+                    style={{ width: '50px', height: '50px', minWidth: '50px' }}>
                     {idx + 1}
                   </div>
                   <div className="timeline-content bg-white p-4 rounded-3 shadow-sm flex-grow-1">

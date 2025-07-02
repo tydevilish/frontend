@@ -33,8 +33,7 @@ export default function Navigation() {
                                 บริการ
                             </Link>
                             <ul className="dropdown-menu border-0 shadow-sm">
-                                <li><Link className="dropdown-item py-2" href="#" onClick={handleNavClick}>บริการ 1</Link></li>
-                                <li><Link className="dropdown-item py-2" href="#" onClick={handleNavClick}>บริการ 2</Link></li>
+                                <li><Link className="dropdown-item py-2" href="/services" onClick={handleNavClick}>บริการของเรา</Link></li>
                                 <li><hr className="dropdown-divider my-1" /></li>
                                 <li><Link className="dropdown-item py-2" href="#" onClick={handleNavClick}>บริการอื่นๆ</Link></li>
                             </ul>
@@ -55,7 +54,6 @@ export default function Navigation() {
                         </div>
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         className="btn btn-link d-lg-none p-0 border-0"
                         type="button"
@@ -66,7 +64,6 @@ export default function Navigation() {
                     </button>
                 </div>
 
-                {/* Mobile Menu */}
                 <div className={`d-lg-none overflow-hidden transition-all ${expanded ? 'd-block' : 'd-none'}`}>
                     <div className="pb-3 border-top pt-3">
                         <div className="d-flex flex-column gap-3">
