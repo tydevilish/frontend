@@ -32,14 +32,15 @@ export default function CardGrid() {
                     <div key={idx} className="col-12 col-md-6 col-lg-4 d-flex">
                         <div className="card shadow-sm flex-fill" style={{ borderRadius: "12px", overflow: "hidden" }}>
                             {image && (
-                                <Image
-                                    src={image}
-                                    className="card-img-top"
-                                    width={700}
-                                    height={700}
-                                    alt={title}
-                                    style={{ objectFit: "cover", height: "200px" }}
-                                />
+                                <div style={{ position: "relative", width: "100%", height: "200px" }}>
+                                    <Image
+                                        src={image}
+                                        alt={title}
+                                        fill
+                                        style={{ objectFit: "cover" }}
+                                    />
+                                </div>
+
                             )}
                             <div className="card-body d-flex flex-column">
                                 <h5 className="card-title fw-bold">{title}</h5>
