@@ -78,8 +78,7 @@ export default function Navigation() {
                                     บริการ
                                 </Link>
                                 <ul className="dropdown-menu border-0 shadow-sm">
-                                    <li><Link className="dropdown-item py-2" href="#" onClick={handleNavClick}>บริการ 1</Link></li>
-                                    <li><Link className="dropdown-item py-2" href="#" onClick={handleNavClick}>บริการ 2</Link></li>
+                                    <li><Link className="dropdown-item py-2" href="/services" onClick={handleNavClick}>บริการของเรา/Link></li>
                                     <li><hr className="dropdown-divider my-1" /></li>
                                     <li><Link className="dropdown-item py-2" href="#" onClick={handleNavClick}>บริการอื่นๆ</Link></li>
                                 </ul>
