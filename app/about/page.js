@@ -13,22 +13,10 @@ export default function About() {
   const experiences = [
     {
       year: "2023 - ปัจจุบัน",
-      title: "Senior Frontend Developer",
-      company: "Tech Innovation Co., Ltd.",
-      description: "พัฒนาและดูแลระบบเว็บแอปพลิเคชันขนาดใหญ่ ใช้เทคโนโลยี React, Next.js และ TypeScript"
+      title: "Full stack Developer",
+      company: "Chiangmai Software And Hardware Service",
+      description: "พัฒนาและดูแลระบบเว็บแอปพลิเคชันขนาดใหญ่ ใช้เทคโนโลยี React, Next.js TypeScript JavaScript"
     },
-    {
-      year: "2021 - 2023",
-      title: "Full Stack Developer",
-      company: "Digital Solutions Ltd.",
-      description: "สร้างและพัฒนาเว็บไซต์และแอปพลิเคชันสำหรับลูกค้าหลากหลายประเภทธุรกิจ"
-    },
-    {
-      year: "2019 - 2021",
-      title: "Frontend Developer",
-      company: "Creative Agency",
-      description: "เริ่มต้นสายงานพัฒนาเว็บไซต์ มุ่งเน้นการสร้าง UI/UX ที่สวยงามและใช้งานง่าย"
-    }
   ];
 
   const achievements = [
@@ -165,7 +153,7 @@ export default function About() {
                     <i className="bi bi-telephone text-primary me-3 mt-1"></i>
                     <div>
                       <strong>โทรศัพท์:</strong><br/>
-                      <span className="text-muted">+66 12 345 6789</span>
+                      <span className="text-muted">+66 92 678 7438</span>
                     </div>
                   </li>
                 </ul>
