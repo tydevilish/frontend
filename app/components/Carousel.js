@@ -1,8 +1,9 @@
 import Image from 'next/image';
+
 export default function Carousel() {
     return (
         <div
-            className="w-100 min-vh-100"
+            className="w-100 min-vh-50"
             style={{ position: "relative", zIndex: 0 }}
         >
             <div
@@ -51,14 +52,7 @@ export default function Carousel() {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-                <div className="position-absolute top-50 start-50 translate-middle text-center">
-                    <p className="text-danger fs-1 fw-bold bg-white bg-opacity-75 rounded px-4 py-2 shadow">
-                        Hello Bootstrap
-                    </p>
-                    <p className="text-primary fs-3 fw-bold bg-white bg-opacity-75 rounded px-4 py-2 shadow">
-                        I'm Jirapat Papai
-                    </p>
-                </div>
+
             </div>
         </div>
     )
