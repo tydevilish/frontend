@@ -58,7 +58,7 @@ export default function Carousel() {
                                             เราช่วยให้ธุรกิจของคุณเติบโตด้วยเทคโนโลยีที่ทันสมัย
                                         </p>
                                         <div className="animate__animated animate__fadeInUp animate__delay-2s">
-                                            <button className="btn btn-primary btn-lg rounded-pill px-4 me-3">
+                                            <button className="btn btn-primary btn-lg rounded-pill px-4 me-3 mb-2">
                                                 เริ่มต้นเลย
                                             </button>
                                             <button className="btn btn-outline-light btn-lg rounded-pill px-4">
