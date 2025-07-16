@@ -36,7 +36,7 @@ export default function About() {
               <div className="text-center text-lg-start">
                 <h1 className="display-4 fw-bold text-dark mb-4 animate-fade-in">
                   สวัสดี! ผม
-                  <span className="text-primary d-block">จิรภัทร์ ป่าไพร</span>
+                  <span className="text-primary d-block">จิรภัทร ป่าไพร</span>
                 </h1>
                 <p className="lead text-muted mb-4 animate-fade-in-delay-1">
                   Fullstack Developer ที่หลงใหลในการสร้างประสบการณ์ดิจิทัลที่สวยงาม

@@ -2,15 +2,15 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-light text-white mt-auto">
+    <footer className=" text-white mt-auto">
       {/* Main Footer Content */}
       <div className="container py-5">
         <div className="row g-4">
           {/* Brand Section */}
           <div className="col-lg-4 col-md-6">
             <div className="d-flex align-items-center mb-3">
-              <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3" 
-                   style={{width: '40px', height: '40px'}}>
+              <div className="bg-primary rounded-circle d-flex align-items-center justify-content-center me-3"
+                style={{ width: '40px', height: '40px' }}>
                 <i className="bi bi-lightning-charge-fill text-white"></i>
               </div>
               <span className="fw-bold fs-4 text-black">Frontend</span>
@@ -19,32 +19,32 @@ export default function Footer() {
               สร้างประสบการณ์ดิจิทัลที่ยอดเยี่ยมด้วยเทคโนโลยีที่ทันสมัยและการออกแบบที่สวยงาม
             </p>
             <div className="d-flex gap-3">
-              <a href="https://facebook.com" 
-                 className="text-muted hover-primary transition-colors" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 aria-label="Facebook">
+              <a href="https://facebook.com"
+                className="text-muted hover-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
                 <i className="bi bi-facebook fs-5"></i>
               </a>
-              <a href="https://instagram.com" 
-                 className="text-muted hover-primary transition-colors" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 aria-label="Instagram">
+              <a href="https://instagram.com"
+                className="text-muted hover-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram">
                 <i className="bi bi-instagram fs-5"></i>
               </a>
-              <a href="https://github.com" 
-                 className="text-muted hover-primary transition-colors" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 aria-label="GitHub">
+              <a href="https://github.com"
+                className="text-muted hover-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub">
                 <i className="bi bi-github fs-5"></i>
               </a>
-              <a href="https://linkedin.com" 
-                 className="text-muted hover-primary transition-colors" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 aria-label="LinkedIn">
+              <a href="https://linkedin.com"
+                className="text-muted hover-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn">
                 <i className="bi bi-linkedin fs-5"></i>
               </a>
             </div>
@@ -95,7 +95,7 @@ export default function Footer() {
               <div className="d-flex align-items-start mb-2">
                 <i className="bi bi-geo-alt text-primary me-2 mt-1"></i>
                 <span className="text-muted small">
-                  9 ถนนเวียงแก้ว ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่<br/>
+                  9 ถนนเวียงแก้ว ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่<br />
                   เชียงใหม่ 50200
                 </span>
               </div>
@@ -112,20 +112,20 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            
+
             <div className="mt-4">
               <h6 className="fw-bold mb-2 small text-primary">รับข่าวสารจากเรา</h6>
               <div className="input-group input-group-sm">
-                <input 
-                  type="email" 
-                  className="form-control bg-white border-secondary text-white" 
+                <input
+                  type="email"
+                  className="form-control bg-white border-secondary text-white"
                   placeholder="อีเมลของคุณ"
-                  style={{borderRadius: '20px 0 0 20px'}}
+                  style={{ borderRadius: '20px 0 0 20px' }}
                 />
-                <button 
-                  className="btn btn-primary px-3" 
+                <button
+                  className="btn btn-primary px-3"
                   type="button"
-                  style={{borderRadius: '0 20px 20px 0'}}
+                  style={{ borderRadius: '0 20px 20px 0' }}
                 >
                   <i className="bi bi-send"></i>
                 </button>
@@ -172,7 +172,7 @@ export default function Footer() {
         }
         
         .form-control:focus {
-          background-color: #343a40 !important;
+          background-color:rgb(243, 241, 241) !important;
           border-color: var(--bs-primary) !important;
           color: white !important;
           box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
@@ -196,6 +196,7 @@ export default function Footer() {
           .btn:hover {
             transform: none;
           }
+
         }
       `}</style>
     </footer>

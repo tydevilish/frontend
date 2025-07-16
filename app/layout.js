@@ -5,6 +5,7 @@ import BootstrapClient from "./components/BootstrapClient";
 import Navigation from "./components/Navigation";
 import { Prompt } from 'next/font/google';
 import Footer from "./components/Footer";
+import "./globals.css"
 
 const prompt = Prompt({
   subsets: ['thai', 'latin'], // รองรับภาษาไทย
