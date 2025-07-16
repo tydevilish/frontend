@@ -10,16 +10,16 @@ export default function Login() {
         password: "",
         rememberMe: false
     });
-    
+
     const [errors, setErrors] = useState({});
-    
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: type === "checkbox" ? checked : value
         }));
-        
+
         // Clear error when user types
         if (errors[name]) {
             setErrors(prev => ({
@@ -28,27 +28,27 @@ export default function Login() {
             }));
         }
     };
-    
+
     const validateForm = () => {
         const newErrors = {};
-        
+
         // Username validation
         if (!formData.username) {
             newErrors.username = "กรุณากรอกชื่อผู้ใช้";
         }
-        
+
         // Password validation
         if (!formData.password) {
             newErrors.password = "กรุณากรอกรหัสผ่าน";
         }
-        
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (validateForm()) {
             // Form is valid, proceed with login
             console.log("Login data:", formData);
@@ -74,7 +74,7 @@ export default function Login() {
                                     <div className="form-floating mb-4">
                                         <input
                                             type="text"
-                                            className={`form-control form-control-lg ${errors.username ? "is-invalid" : ""}`}
+                                            className={`form-control form-control-lg ${errors.username ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                             id="usernameInput"
                                             name="username"
                                             value={formData.username}
@@ -93,13 +93,15 @@ export default function Login() {
                                     <div className="form-floating mb-4">
                                         <input
                                             type="password"
-                                            className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""}`}
+                                            className={`form-control form-control-lg ${errors.password ? "is-invalid border border-danger focus-ring-danger" : ""
+                                                }`}
                                             id="passwordInput"
                                             name="password"
                                             value={formData.password}
                                             onChange={handleChange}
                                             placeholder="รหัสผ่าน"
                                         />
+
                                         {errors.password && (
                                             <div className="invalid-feedback">
                                                 <i className="bi bi-exclamation-circle me-1"></i>
@@ -304,6 +306,10 @@ export default function Login() {
                         color: #2e59d9;
                         text-decoration: underline !important;
                     }
+
+                    input.is-invalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); /* Bootstrap-like danger ring */
+}
                     
                     /* Animation */
                     @keyframes fadeInUp {

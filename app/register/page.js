@@ -17,16 +17,16 @@ export default function Register() {
         birthdate: "",
         acceptTerms: false
     });
-    
+
     const [errors, setErrors] = useState({});
-    
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
             ...prev,
             [name]: type === "checkbox" ? checked : value
         }));
-        
+
         // Clear error when user types
         if (errors[name]) {
             setErrors(prev => ({
@@ -35,71 +35,71 @@ export default function Register() {
             }));
         }
     };
-    
+
     const validateForm = () => {
         const newErrors = {};
-        
+
         // Username validation
         if (!formData.username) {
             newErrors.username = "กรุณากรอกชื่อผู้ใช้";
         }
-        
+
         // Password validation
         if (!formData.password) {
             newErrors.password = "กรุณากรอกรหัสผ่าน";
         } else if (formData.password.length < 8) {
             newErrors.password = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         }
-        
+
         // Confirm password validation
         if (!formData.confirmPassword) {
             newErrors.confirmPassword = "กรุณายืนยันรหัสผ่าน";
         } else if (formData.password !== formData.confirmPassword) {
             newErrors.confirmPassword = "รหัสผ่านไม่ตรงกัน";
         }
-        
+
         // Title validation
         if (!formData.title) {
             newErrors.title = "กรุณาเลือกคำนำหน้าชื่อ";
         }
-        
+
         // First name validation
         if (!formData.firstName) {
             newErrors.firstName = "กรุณากรอกชื่อ";
         }
-        
+
         // Last name validation
         if (!formData.lastName) {
             newErrors.lastName = "กรุณากรอกนามสกุล";
         }
-        
+
         // Address validation
         if (!formData.address) {
             newErrors.address = "กรุณากรอกที่อยู่";
         }
-        
+
         // Gender validation
         if (!formData.gender) {
             newErrors.gender = "กรุณาเลือกเพศ";
         }
-        
+
         // Birthdate validation
         if (!formData.birthdate) {
             newErrors.birthdate = "กรุณาเลือกวันเกิด";
         }
-        
+
         // Terms validation
         if (!formData.acceptTerms) {
             newErrors.acceptTerms = "กรุณายอมรับข้อกำหนดและเงื่อนไข";
         }
-        
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (validateForm()) {
             // Form is valid, proceed with registration
             console.log("Registration data:", formData);
@@ -124,7 +124,7 @@ export default function Register() {
                                     <div className="form-floating mb-4">
                                         <input
                                             type="text"
-                                            className={`form-control form-control-lg ${errors.username ? "is-invalid" : ""}`}
+                                            className={`form-control form-control-lg ${errors.username ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                             id="usernameInput"
                                             name="username"
                                             value={formData.username}
@@ -132,19 +132,19 @@ export default function Register() {
                                             placeholder="ชื่อผู้ใช้"
                                         />
                                         {errors.username && (
-                                                <div className="invalid-feedback">
-                                                    <i className="bi bi-exclamation-circle me-1"></i>
-                                                    {errors.username}
-                                                </div>
-                                            )}
+                                            <div className="invalid-feedback">
+                                                <i className="bi bi-exclamation-circle me-1"></i>
+                                                {errors.username}
+                                            </div>
+                                        )}
                                         <label htmlFor="usernameInput">ชื่อผู้ใช้</label>
                                     </div>
 
                                     <div className="row">
                                         <div className="col-md-4 mb-4">
                                             <div className="form-floating">
-                                                <select 
-                                                    className={`form-select form-select-lg ${errors.title ? "is-invalid" : ""}`}
+                                                <select
+                                                    className={`form-select form-select-lg ${errors.title ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                     id="titleSelect"
                                                     name="title"
                                                     value={formData.title}
@@ -169,7 +169,7 @@ export default function Register() {
                                             <div className="form-floating mb-4">
                                                 <input
                                                     type="text"
-                                                    className={`form-control form-control-lg ${errors.firstName ? "is-invalid" : ""}`}
+                                                    className={`form-control form-control-lg ${errors.firstName ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                     id="firstNameInput"
                                                     name="firstName"
                                                     value={formData.firstName}
@@ -189,7 +189,7 @@ export default function Register() {
                                             <div className="form-floating mb-4">
                                                 <input
                                                     type="text"
-                                                    className={`form-control form-control-lg ${errors.lastName ? "is-invalid" : ""}`}
+                                                    className={`form-control form-control-lg ${errors.lastName ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                     id="lastNameInput"
                                                     name="lastName"
                                                     value={formData.lastName}
@@ -209,7 +209,7 @@ export default function Register() {
 
                                     <div className="form-floating mb-4">
                                         <textarea
-                                            className={`form-control form-control-lg ${errors.address ? "is-invalid" : ""}`}
+                                            className={`form-control form-control-lg ${errors.address ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                             id="addressInput"
                                             name="address"
                                             value={formData.address}
@@ -232,7 +232,7 @@ export default function Register() {
                                             <div className="d-flex gap-4 mt-2">
                                                 <div className="form-check">
                                                     <input
-                                                        className={`form-check-input ${errors.gender ? "is-invalid" : ""}`}
+                                                        className={`form-check-input ${errors.gender ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                         type="radio"
                                                         name="gender"
                                                         id="genderMale"
@@ -246,7 +246,7 @@ export default function Register() {
                                                 </div>
                                                 <div className="form-check">
                                                     <input
-                                                        className={`form-check-input ${errors.gender ? "is-invalid" : ""}`}
+                                                        className={`form-check-input ${errors.gender ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                         type="radio"
                                                         name="gender"
                                                         id="genderFemale"
@@ -260,7 +260,7 @@ export default function Register() {
                                                 </div>
                                                 <div className="form-check">
                                                     <input
-                                                        className={`form-check-input ${errors.gender ? "is-invalid" : ""}`}
+                                                        className={`form-check-input ${errors.gender ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                         type="radio"
                                                         name="gender"
                                                         id="genderOther"
@@ -284,7 +284,7 @@ export default function Register() {
                                             <div className="form-floating">
                                                 <input
                                                     type="date"
-                                                    className={`form-control form-control-lg ${errors.birthdate ? "is-invalid" : ""}`}
+                                                    className={`form-control form-control-lg ${errors.birthdate ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                     id="birthdateInput"
                                                     name="birthdate"
                                                     value={formData.birthdate}
@@ -304,7 +304,7 @@ export default function Register() {
                                     <div className="form-floating mb-4">
                                         <input
                                             type="password"
-                                            className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""}`}
+                                            className={`form-control form-control-lg ${errors.password ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                             id="passwordInput"
                                             name="password"
                                             value={formData.password}
@@ -320,16 +320,16 @@ export default function Register() {
                                         <label htmlFor="passwordInput">รหัสผ่าน</label>
                                         <div className="password-strength mt-2">
                                             <div className="progress" style={{ height: '6px' }}>
-                                                <div 
-                                                    className={`progress-bar ${formData.password.length < 6 ? "bg-danger" : formData.password.length < 8 ? "bg-warning" : "bg-success"}`} 
+                                                <div
+                                                    className={`progress-bar ${formData.password.length < 6 ? "bg-danger" : formData.password.length < 8 ? "bg-warning" : "bg-success"}`}
                                                     style={{ width: formData.password ? `${Math.min(100, formData.password.length * 10)}%` : "0%" }}
                                                 ></div>
                                             </div>
                                             <small className="text-muted mt-1 d-block">
-                                                ความปลอดภัยของรหัสผ่าน: 
-                                                {!formData.password ? "" : 
-                                                 formData.password.length < 6 ? "ต่ำ" : 
-                                                 formData.password.length < 8 ? "ปานกลาง" : "ดี"}
+                                                ความปลอดภัยของรหัสผ่าน:
+                                                {!formData.password ? "" :
+                                                    formData.password.length < 6 ? "ต่ำ" :
+                                                        formData.password.length < 8 ? "ปานกลาง" : "ดี"}
                                             </small>
                                         </div>
                                     </div>
@@ -337,7 +337,7 @@ export default function Register() {
                                     <div className="form-floating mb-4">
                                         <input
                                             type="password"
-                                            className={`form-control form-control-lg ${errors.confirmPassword ? "is-invalid" : ""}`}
+                                            className={`form-control form-control-lg ${errors.confirmPassword ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                             id="confirmPasswordInput"
                                             name="confirmPassword"
                                             value={formData.confirmPassword}
@@ -356,7 +356,7 @@ export default function Register() {
                                     <div className="mb-4">
                                         <div className="form-check">
                                             <input
-                                                className={`form-check-input ${errors.acceptTerms ? "is-invalid" : ""}`}
+                                                className={`form-check-input ${errors.acceptTerms ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                 type="checkbox"
                                                 id="termsCheck"
                                                 name="acceptTerms"
@@ -506,6 +506,10 @@ export default function Register() {
                     .register-btn:hover::after {
                         left: 100%;
                     }
+
+                                        input.is-invalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25); /* Bootstrap-like danger ring */
+}
                     
                     .btn-icon {
                         transition: transform 0.3s ease;
