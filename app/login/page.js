@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        email: "",
+        username: "",
         password: "",
         rememberMe: false
     });
@@ -32,11 +32,9 @@ export default function Login() {
     const validateForm = () => {
         const newErrors = {};
         
-        // Email validation
-        if (!formData.email) {
-            newErrors.email = "กรุณากรอกอีเมล";
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = "รูปแบบอีเมลไม่ถูกต้อง";
+        // Username validation
+        if (!formData.username) {
+            newErrors.username = "กรุณากรอกชื่อผู้ใช้";
         }
         
         // Password validation
@@ -75,18 +73,21 @@ export default function Login() {
                                 <form onSubmit={handleSubmit}>
                                     <div className="form-floating mb-4">
                                         <input
-                                            type="email"
-                                            className={`form-control form-control-lg ${errors.email ? "is-invalid" : ""}`}
-                                            id="emailInput"
-                                            name="email"
-                                            value={formData.email}
+                                            type="text"
+                                            className={`form-control form-control-lg ${errors.username ? "is-invalid" : ""}`}
+                                            id="usernameInput"
+                                            name="username"
+                                            value={formData.username}
                                             onChange={handleChange}
-                                            placeholder="อีเมล"
+                                            placeholder="ชื่อผู้ใช้"
                                         />
-                                        {errors.email && (
-                                            <div className="invalid-feedback">{errors.email}</div>
+                                        {errors.username && (
+                                            <div className="invalid-feedback">
+                                                <i className="bi bi-exclamation-circle me-1"></i>
+                                                {errors.username}
+                                            </div>
                                         )}
-                                        <label htmlFor="emailInput">อีเมล</label>
+                                        <label htmlFor="usernameInput">ชื่อผู้ใช้</label>
                                     </div>
 
                                     <div className="form-floating mb-4">
@@ -100,7 +101,10 @@ export default function Login() {
                                             placeholder="รหัสผ่าน"
                                         />
                                         {errors.password && (
-                                            <div className="invalid-feedback">{errors.password}</div>
+                                            <div className="invalid-feedback">
+                                                <i className="bi bi-exclamation-circle me-1"></i>
+                                                {errors.password}
+                                            </div>
                                         )}
                                         <label htmlFor="passwordInput">รหัสผ่าน</label>
                                     </div>

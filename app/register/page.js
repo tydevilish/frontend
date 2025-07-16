@@ -107,7 +107,7 @@ export default function Register() {
         }
     };
     return (
-        <section className="py-5 bg-light min-vh-100 d-flex align-items-center mt-5">
+        <section className="py-5 bg-light min-vh-100 d-flex align-items-center" style={{ paddingTop: "120px !important" }}>
             <div className="container px-4 px-lg-5">
                 <div className="row gx-5 justify-content-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
                     <div className="col-lg-8">
@@ -132,8 +132,11 @@ export default function Register() {
                                             placeholder="ชื่อผู้ใช้"
                                         />
                                         {errors.username && (
-                                            <div className="invalid-feedback">{errors.username}</div>
-                                        )}
+                                                <div className="invalid-feedback">
+                                                    <i className="bi bi-exclamation-circle me-1"></i>
+                                                    {errors.username}
+                                                </div>
+                                            )}
                                         <label htmlFor="usernameInput">ชื่อผู้ใช้</label>
                                     </div>
 
@@ -154,7 +157,10 @@ export default function Register() {
                                                     <option value="ดร.">ดร.</option>
                                                 </select>
                                                 {errors.title && (
-                                                    <div className="invalid-feedback">{errors.title}</div>
+                                                    <div className="invalid-feedback">
+                                                        <i className="bi bi-exclamation-circle me-1"></i>
+                                                        {errors.title}
+                                                    </div>
                                                 )}
                                                 <label htmlFor="titleSelect">คำนำหน้าชื่อ</label>
                                             </div>
@@ -171,7 +177,10 @@ export default function Register() {
                                                     placeholder="ชื่อ"
                                                 />
                                                 {errors.firstName && (
-                                                    <div className="invalid-feedback">{errors.firstName}</div>
+                                                    <div className="invalid-feedback">
+                                                        <i className="bi bi-exclamation-circle me-1"></i>
+                                                        {errors.firstName}
+                                                    </div>
                                                 )}
                                                 <label htmlFor="firstNameInput">ชื่อ</label>
                                             </div>
@@ -188,7 +197,10 @@ export default function Register() {
                                                     placeholder="นามสกุล"
                                                 />
                                                 {errors.lastName && (
-                                                    <div className="invalid-feedback">{errors.lastName}</div>
+                                                    <div className="invalid-feedback">
+                                                        <i className="bi bi-exclamation-circle me-1"></i>
+                                                        {errors.lastName}
+                                                    </div>
                                                 )}
                                                 <label htmlFor="lastNameInput">นามสกุล</label>
                                             </div>
@@ -206,7 +218,10 @@ export default function Register() {
                                             style={{ height: "100px" }}
                                         ></textarea>
                                         {errors.address && (
-                                            <div className="invalid-feedback">{errors.address}</div>
+                                            <div className="invalid-feedback">
+                                                <i className="bi bi-exclamation-circle me-1"></i>
+                                                {errors.address}
+                                            </div>
                                         )}
                                         <label htmlFor="addressInput">ที่อยู่</label>
                                     </div>
@@ -259,7 +274,10 @@ export default function Register() {
                                                 </div>
                                             </div>
                                             {errors.gender && (
-                                                <div className="text-danger small mt-1">{errors.gender}</div>
+                                                <div className="text-danger small mt-1">
+                                                    <i className="bi bi-exclamation-circle me-1"></i>
+                                                    {errors.gender}
+                                                </div>
                                             )}
                                         </div>
                                         <div className="col-md-6">
@@ -273,7 +291,10 @@ export default function Register() {
                                                     onChange={handleChange}
                                                 />
                                                 {errors.birthdate && (
-                                                    <div className="invalid-feedback">{errors.birthdate}</div>
+                                                    <div className="invalid-feedback">
+                                                        <i className="bi bi-exclamation-circle me-1"></i>
+                                                        {errors.birthdate}
+                                                    </div>
                                                 )}
                                                 <label htmlFor="birthdateInput">วันเกิด</label>
                                             </div>
@@ -291,7 +312,10 @@ export default function Register() {
                                             placeholder="รหัสผ่าน"
                                         />
                                         {errors.password && (
-                                            <div className="invalid-feedback">{errors.password}</div>
+                                            <div className="invalid-feedback">
+                                                <i className="bi bi-exclamation-circle me-1"></i>
+                                                {errors.password}
+                                            </div>
                                         )}
                                         <label htmlFor="passwordInput">รหัสผ่าน</label>
                                         <div className="password-strength mt-2">
@@ -321,7 +345,10 @@ export default function Register() {
                                             placeholder="ยืนยันรหัสผ่าน"
                                         />
                                         {errors.confirmPassword && (
-                                            <div className="invalid-feedback">{errors.confirmPassword}</div>
+                                            <div className="invalid-feedback">
+                                                <i className="bi bi-exclamation-circle me-1"></i>
+                                                {errors.confirmPassword}
+                                            </div>
                                         )}
                                         <label htmlFor="confirmPasswordInput">ยืนยันรหัสผ่าน</label>
                                     </div>
@@ -340,7 +367,10 @@ export default function Register() {
                                                 ฉันยอมรับ <a href="#" className="text-decoration-none terms-link">ข้อกำหนดและเงื่อนไข</a> และ <a href="#" className="text-decoration-none terms-link">นโยบายความเป็นส่วนตัว</a>
                                             </label>
                                             {errors.acceptTerms && (
-                                                <div className="invalid-feedback">{errors.acceptTerms}</div>
+                                                <div className="invalid-feedback">
+                                                    <i className="bi bi-exclamation-circle me-1"></i>
+                                                    {errors.acceptTerms}
+                                                </div>
                                             )}
                                         </div>
                                     </div>
