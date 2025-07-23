@@ -97,17 +97,35 @@ export default function Register() {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (validateForm()) {
-            // Form is valid, proceed with registration
-            console.log("Registration data:", formData);
-            // Here you would typically call your registration API
+            try {
+                const response = await fetch("/api/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("สมัครสมาชิกสำเร็จ!");
+                } else {
+                    alert("เกิดข้อผิดพลาด: " + data.message);
+                }
+            } catch (error) {
+                console.error("API error:", error);
+                alert("ไม่สามารถเชื่อมต่อ API ได้");
+            }
         }
     };
+
     return (
-        <section className="py-5 bg-light min-vh-100 d-flex align-items-center" style={{ paddingTop: "120px !important" }}>
+        <section className="py-5 bg-light min-vh-100 d-flex align-items-center mt-5">
             <div className="container px-4 px-lg-5">
                 <div className="row gx-5 justify-content-center" style={{ maxWidth: "1400px", margin: "0 auto" }}>
                     <div className="col-lg-8">
