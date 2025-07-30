@@ -104,7 +104,7 @@ const handleSubmit = async (e) => {
 
     if (validateForm()) {
         try {
-            const response = await fetch("http://itdev.cmtc.ac.th:3000/api/users", {
+            const response = await fetch("/api/register", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
