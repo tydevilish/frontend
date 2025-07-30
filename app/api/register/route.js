@@ -1,6 +1,6 @@
 // app/api/users/route.js
 
-export async function GET() {
+export async function POST() {
   try {
     const response = await fetch("http://itdev.cmtc.ac.th:3000/api/users", {
       method: "POST",
