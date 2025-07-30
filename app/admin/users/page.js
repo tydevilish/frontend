@@ -19,7 +19,7 @@ const styles = {
   },
   card: {
     transition: 'all 0.3s ease',
-    boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, 0.15)'
+    boxShadow: '0 0.5rem 1rem rgba(0, 0, 0, 0.15)',
   },
   tableContainer: {
     borderRadius: '0.5rem',
@@ -58,45 +58,18 @@ const styles = {
 
 export default function Users() {
   const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchUsers();
   }, []);
   
-  // Filter users when search term or items change
-  useEffect(() => {
-    if (searchTerm.trim() === '') {
-      setFilteredItems(items);
-    } else {
-      const lowercasedSearch = searchTerm.toLowerCase();
-      const filtered = items.filter(item => {
-        return (
-          (item.firstname && item.firstname.toLowerCase().includes(lowercasedSearch)) ||
-          (item.fullname && item.fullname.toLowerCase().includes(lowercasedSearch)) ||
-          (item.lastname && item.lastname.toLowerCase().includes(lowercasedSearch)) ||
-          (item.username && item.username.toLowerCase().includes(lowercasedSearch)) ||
-          (item.address && item.address.toLowerCase().includes(lowercasedSearch)) ||
-          (item.id && item.id.toString().includes(lowercasedSearch))
-        );
-      });
-      setFilteredItems(filtered);
-    }
-  }, [searchTerm, items]);
-  
   // Function to view user details
   const handleViewDetails = (user) => {
     setSelectedUser(user);
     setShowModal(true);
-  };
-  
-  // Handle search input change
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
   };
 
   const fetchUsers = async () => {
@@ -106,10 +79,9 @@ export default function Users() {
       if (!res.ok) {
         console.error('Failed to fetch data');
         return;
-       }
+      }
       const data = await res.json();
       setItems(data);
-      setFilteredItems(data);
     } catch (error) {
       console.error('Error fetching data:', error);
       Swal.fire({
@@ -167,9 +139,9 @@ export default function Users() {
   return (
     <>
     <div className="container-fluid py-4" style={styles.pageContainer}>
-      <div className="row mb-4">
-        <div className="col-12">
-          <div className="card shadow-lg border-0 rounded-4 overflow-hidden" style={styles.card}>
+      <div className="row mb-4 ">
+        <div className="col-12 mt-4">
+          <div className="card shadow-lg border-0 rounded-4 overflow-hidden mt-5" style={styles.card}>
             <div className="card-header py-3 d-flex justify-content-between align-items-center" style={styles.cardHeader}>
               <h4 className="mb-0 fw-bold">
                 <i className="bi bi-people-fill me-2"></i>
