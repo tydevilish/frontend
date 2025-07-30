@@ -14,7 +14,7 @@ export default function Register() {
         fullname: "",
         lastName: "",
         address: "",
-        gender: "",
+        sex: "",
         birthdate: "",
         acceptTerms: false
     });
@@ -80,9 +80,10 @@ export default function Register() {
         }
 
         // Gender validation
-        if (!formData.gender) {
-            newErrors.gender = "กรุณาเลือกเพศ";
-        }
+if (!formData.sex) {
+    newErrors.sex = "กรุณาเลือกเพศ";
+}
+
 
         // Birthdate validation
         if (!formData.birthdate) {
@@ -114,7 +115,11 @@ const handleSubmit = async (e) => {
                     fullname: formData.fullname || formData.firstName || "",
                     lastname: formData.lastName || formData.lastname || "",
                     username: formData.username,
-                    password: formData.password
+                    password: formData.password,
+                    sex: formData.sex,
+                    address: formData.address,
+                    birthday: formData.birthdate,
+
                 }),
             });
 
@@ -146,6 +151,7 @@ const handleSubmit = async (e) => {
         }
     }
 };
+
 
     return (
         <section className="py-5 bg-light min-vh-100 d-flex align-items-center mt-5">
@@ -273,22 +279,23 @@ const handleSubmit = async (e) => {
                                             <label className="form-label">เพศ</label>
                                             <div className="d-flex gap-4 mt-2">
                                                 <div className="form-check">
-                                                    <input
-                                                        className={`form-check-input ${errors.gender ? "is-invalid border border-danger focus-ring-danger" : ""}`}
-                                                        type="radio"
-                                                        name="gender"
-                                                        id="genderMale"
-                                                        value="male"
-                                                        checked={formData.gender === "male"}
-                                                        onChange={handleChange}
-                                                    />
-                                                    <label className="form-check-label" htmlFor="genderMale">
-                                                        ชาย
-                                                    </label>
+<input
+    className={`form-check-input ${errors.sex ? "is-invalid border border-danger focus-ring-danger" : ""}`}
+    type="radio"
+    name="sex"
+    id="sexMale"
+    value="male"
+    checked={formData.sex === "male"}
+    onChange={handleChange}
+/>
+<label className="form-check-label" htmlFor="sexMale">
+    ชาย
+</label>
+
                                                 </div>
                                                 <div className="form-check">
                                                     <input
-                                                        className={`form-check-input ${errors.gender ? "is-invalid border border-danger focus-ring-danger" : ""}`}
+                                                        className={`form-check-input ${errors.sex ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                         type="radio"
                                                         name="gender"
                                                         id="genderFemale"
@@ -302,12 +309,12 @@ const handleSubmit = async (e) => {
                                                 </div>
                                                 <div className="form-check">
                                                     <input
-                                                        className={`form-check-input ${errors.gender ? "is-invalid border border-danger focus-ring-danger" : ""}`}
+                                                        className={`form-check-input ${errors.sex ? "is-invalid border border-danger focus-ring-danger" : ""}`}
                                                         type="radio"
                                                         name="gender"
                                                         id="genderOther"
                                                         value="other"
-                                                        checked={formData.gender === "other"}
+                                                        checked={formData.sex === "other"}
                                                         onChange={handleChange}
                                                     />
                                                     <label className="form-check-label" htmlFor="genderOther">
@@ -315,12 +322,12 @@ const handleSubmit = async (e) => {
                                                     </label>
                                                 </div>
                                             </div>
-                                            {errors.gender && (
-                                                <div className="text-danger small mt-1">
-                                                    <i className="bi bi-exclamation-circle me-1"></i>
-                                                    {errors.gender}
-                                                </div>
-                                            )}
+{errors.sex && (
+    <div className="text-danger small mt-1">
+        <i className="bi bi-exclamation-circle me-1"></i>
+        {errors.sex}
+    </div>
+)}
                                         </div>
                                         <div className="col-md-6">
                                             <div className="form-floating">
