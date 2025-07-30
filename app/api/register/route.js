@@ -3,13 +3,13 @@
 export async function GET() {
   try {
     const response = await fetch("http://itdev.cmtc.ac.th:3000/api/users", {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
       }
     });
 
-    const data = await response.json(); // ✅ ใช้ response แทน res
+    const data = await response.json();
 
     return new Response(JSON.stringify(data), {
       status: 200,
