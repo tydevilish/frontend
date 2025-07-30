@@ -138,10 +138,10 @@ export default function Users() {
 
   return (
     <>
-    <div className="container-fluid py-4" style={styles.pageContainer}>
+    <div className="container-fluid py-4 " style={styles.pageContainer}>
       <div className="row mb-4 ">
         <div className="col-12 mt-4">
-          <div className="card shadow-lg border-0 rounded-4 overflow-hidden mt-5" style={styles.card}>
+          <div className="card shadow-lg border-0 rounded-4 overflow-hidden mt-5 mx-5" style={styles.card}>
             <div className="card-header py-3 d-flex justify-content-between align-items-center" style={styles.cardHeader}>
               <h4 className="mb-0 fw-bold">
                 <i className="bi bi-people-fill me-2"></i>
