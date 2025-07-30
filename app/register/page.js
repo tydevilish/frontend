@@ -1,16 +1,17 @@
 "use client"
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
+import Swal from 'sweetalert2';
+
 
 export default function Register() {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
         confirmPassword: "",
-        title: "",
-        firstName: "",
+        firstname: "",
+        fullname: "",
         lastName: "",
         address: "",
         gender: "",
@@ -59,13 +60,13 @@ export default function Register() {
         }
 
         // Title validation
-        if (!formData.title) {
-            newErrors.title = "กรุณาเลือกคำนำหน้าชื่อ";
+        if (!formData.firstname) {
+            newErrors.firstname = "กรุณาเลือกคำนำหน้าชื่อ";
         }
 
         // First name validation
-        if (!formData.firstName) {
-            newErrors.firstName = "กรุณากรอกชื่อ";
+        if (!formData.fullname) {
+            newErrors.fullname = "กรุณากรอกชื่อ";
         }
 
         // Last name validation
@@ -97,32 +98,54 @@ export default function Register() {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        if (validateForm()) {
-            try {
-                const response = await fetch("/api/register", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(formData),
+    if (validateForm()) {
+        try {
+            const response = await fetch("http://itdev.cmtc.ac.th:3000/api/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    firstname: formData.firstname || formData.title || "",
+                    fullname: formData.fullname || formData.firstName || "",
+                    lastname: formData.lastName || formData.lastname || "",
+                    username: formData.username,
+                    password: formData.password
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'สมัครสมาชิกสำเร็จ!',
+                    text: 'สามารถเข้าสู่ระบบได้แล้ว',
+                    confirmButtonColor: '#4e73df'
                 });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert("สมัครสมาชิกสำเร็จ!");
-                } else {
-                    alert("เกิดข้อผิดพลาด: " + data.message);
-                }
-            } catch (error) {
-                console.error("API error:", error);
-                alert("ไม่สามารถเชื่อมต่อ API ได้");
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: data.message || 'ไม่สามารถสมัครสมาชิกได้',
+                    confirmButtonColor: '#dc3545'
+                });
             }
+        } catch (error) {
+            console.error("API error:", error);
+            Swal.fire({
+                icon: 'error',
+                title: 'ไม่สามารถเชื่อมต่อ API ได้',
+                text: 'กรุณาลองใหม่ภายหลัง',
+                confirmButtonColor: '#dc3545'
+            });
         }
-    };
+    }
+};
 
     return (
         <section className="py-5 bg-light min-vh-100 d-flex align-items-center mt-5">
@@ -161,13 +184,13 @@ export default function Register() {
                                     <div className="row">
                                         <div className="col-md-4 mb-4">
                                             <div className="form-floating">
-                                                <select
-                                                    className={`form-select form-select-lg ${errors.title ? "is-invalid border border-danger focus-ring-danger" : ""}`}
-                                                    id="titleSelect"
-                                                    name="title"
-                                                    value={formData.title}
-                                                    onChange={handleChange}
-                                                >
+<select
+    className={`form-select form-select-lg ${errors.firstname ? "is-invalid border border-danger focus-ring-danger" : ""}`}
+    id="titleSelect"
+    name="firstname"  // เปลี่ยนจาก name="title"
+    value={formData.firstname}
+    onChange={handleChange}
+>
                                                     <option value="">เลือกคำนำหน้าชื่อ</option>
                                                     <option value="นาย">นาย</option>
                                                     <option value="นาง">นาง</option>
@@ -177,7 +200,7 @@ export default function Register() {
                                                 {errors.title && (
                                                     <div className="invalid-feedback">
                                                         <i className="bi bi-exclamation-circle me-1"></i>
-                                                        {errors.title}
+                                                        {errors.firstname}
                                                     </div>
                                                 )}
                                                 <label htmlFor="titleSelect">คำนำหน้าชื่อ</label>
@@ -185,19 +208,20 @@ export default function Register() {
                                         </div>
                                         <div className="col-md-4">
                                             <div className="form-floating mb-4">
-                                                <input
-                                                    type="text"
-                                                    className={`form-control form-control-lg ${errors.firstName ? "is-invalid border border-danger focus-ring-danger" : ""}`}
-                                                    id="firstNameInput"
-                                                    name="firstName"
-                                                    value={formData.firstName}
-                                                    onChange={handleChange}
-                                                    placeholder="ชื่อ"
-                                                />
-                                                {errors.firstName && (
+<input
+    type="text"
+    className={`form-control form-control-lg ${errors.fullname ? "is-invalid border border-danger focus-ring-danger" : ""}`}
+    id="firstNameInput"
+    name="fullname"  // เปลี่ยนจาก name="firstName"
+    value={formData.fullname}  // ตรงกับ formData
+    onChange={handleChange}
+    placeholder="ชื่อ"
+/>
+
+                                                {errors.fullname && (
                                                     <div className="invalid-feedback">
                                                         <i className="bi bi-exclamation-circle me-1"></i>
-                                                        {errors.firstName}
+                                                        {errors.fullname}
                                                     </div>
                                                 )}
                                                 <label htmlFor="firstNameInput">ชื่อ</label>
@@ -205,15 +229,15 @@ export default function Register() {
                                         </div>
                                         <div className="col-md-4">
                                             <div className="form-floating mb-4">
-                                                <input
-                                                    type="text"
-                                                    className={`form-control form-control-lg ${errors.lastName ? "is-invalid border border-danger focus-ring-danger" : ""}`}
-                                                    id="lastNameInput"
-                                                    name="lastName"
-                                                    value={formData.lastName}
-                                                    onChange={handleChange}
-                                                    placeholder="นามสกุล"
-                                                />
+<input
+    type="text"
+    className={`form-control form-control-lg ${errors.lastName ? "is-invalid border border-danger focus-ring-danger" : ""}`}
+    id="lastNameInput"
+    name="lastName"
+    value={formData.lastName} // เปลี่ยนจาก formData.lastname
+    onChange={handleChange}
+    placeholder="นามสกุล"
+/>
                                                 {errors.lastName && (
                                                     <div className="invalid-feedback">
                                                         <i className="bi bi-exclamation-circle me-1"></i>
