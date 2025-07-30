@@ -1,31 +1,25 @@
-// /pages/api/forward.js
+// app/api/users/route.js (สำหรับ App Router)
 
-export default async function handler(req, res) {
-  if (req.method !== "GET") {
-    return res.status(405).json({ message: "Method Not Allowed" });
-  }
-
+export async function GET(request) {
   try {
-    // 🔁 URL ปลายทางที่คุณจะ forward ไป
-    const targetUrl = "http://itdev.cmtc.ac.th:3000/api/users";
-
-    // 🔫 ยิงไปยัง URL นั้น
-    const response = await fetch(targetUrl, {
+    const response = await fetch("http://itdev.cmtc.ac.th:3000/api/users", {
       method: "GET",
       headers: {
-        "Content-Type": "application/json",
-        // Authorization: `Bearer ${token}` // เพิ่มได้ถ้าจำเป็น
-      },
+        "Content-Type": "application/json"
+      }
     });
 
-    // 📥 เอาข้อมูลที่ได้มา
     const data = await response.json();
 
-    // ✅ ส่งกลับให้ frontend
-    return res.status(200).json(data);
-
+    return new Response(JSON.stringify(data), {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
+    });
   } catch (error) {
-    console.error("Error forwarding request:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
+    console.error("Error fetching users:", error);
+    return new Response(JSON.stringify({ message: "Internal Server Error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
   }
 }

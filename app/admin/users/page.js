@@ -75,7 +75,7 @@ export default function Users() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const res = await fetch('/api/users');
+const res = await fetch('/api/users');
       if (!res.ok) {
         console.error('Failed to fetch data');
         return;
