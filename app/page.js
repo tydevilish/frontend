@@ -556,28 +556,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative z-10 py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Start Your
-              <br />
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Next Project?
-              </span>
-            </h2>
-            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-              Let's discuss your ideas and turn them into reality. Get in touch
-              with our team today.
-            </p>
-            <button className="px-12 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-              Get Started Now
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* Infinite Horizontal Slider */}
       <section className="relative z-10 py-24 overflow-hidden">
         <div className="text-center mb-16 px-6">
@@ -781,6 +759,28 @@ export default function Home() {
               }}
             />
           ))}
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative z-10 py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-white/10 rounded-3xl p-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Start Your
+              <br />
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Next Project?
+              </span>
+            </h2>
+            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+              Let's discuss your ideas and turn them into reality. Get in touch
+              with our team today.
+            </p>
+            <button className="px-12 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              Get Started Now
+            </button>
+          </div>
         </div>
       </section>
     </div>
