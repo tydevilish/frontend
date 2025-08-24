@@ -466,7 +466,7 @@ export default function Services() {
 
       {/* Hero Section with Interactive Graph */}
       <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
-        <div className="max-w-7xl mx-auto mt-26 lg:mt-2">
+        <div className="max-w-7xl mx-auto mt-24 xl:mt-18">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
             <div className="space-y-8">

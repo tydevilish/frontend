@@ -48,24 +48,24 @@ export default function Footer() {
 
   const socialLinks = [
     {
-      name: "Twitter",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/b/b7/X_logo.jpg",
-      href: "https://twitter.com",
+      name: "Facebook",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/facebook/facebook-original.svg",
+      href: "https://www.facebook.com/jirapxt.papxi",
     },
     {
-      name: "LinkedIn",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
-      href: "https://linkedin.com",
+      name: "Instagram",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg",
+      href: "https://www.facebook.com/jirapxt.papxihttps://www.instagram.com/pleasexanny_0i",
     },
     {
       name: "GitHub",
       logo: "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png",
-      href: "https://github.com",
+      href: "https://github.com/tydevilish",
     },
     {
       name: "Discord",
       logo: "https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg",
-      href: "https://discord.com",
+      href: "discordapp.com/users/867790140478586880",
     },
   ];
 

@@ -262,7 +262,7 @@ export default function About() {
         
         <section className="min-h-screen flex items-center justify-center px-6">
           
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center mt-26 lg:mt-2">
+          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center mt-24 xl:mt-18">
             {/* Left Side - Profile Image */}
             <div className="text-center lg:text-left">
               <div className="relative inline-block mb-8">

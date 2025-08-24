@@ -184,7 +184,7 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative z-10 min-h-screen flex items-center justify-center px-6 mt-24 lg:mt-2">
+      <section className="relative z-10 min-h-screen flex items-center justify-center px-6 mt-24 xl:mt-18">
         <div className="max-w-6xl mx-auto text-center">
           {/* Available Now Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full mb-8 group hover:bg-white/10 transition-all duration-300">
