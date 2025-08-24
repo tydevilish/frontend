@@ -33,11 +33,10 @@ export default function Navigation() {
   };
 
   const menuItems = [
-    { name: "Products", href: "#" },
-    { name: "Solutions", href: "#" },
-    { name: "Resources", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "Company", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -74,12 +73,12 @@ export default function Navigation() {
                 onMouseEnter={() => setHoveredItem(index)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                <a
+                <Link
                   href={item.href}
                   className="px-4 py-2 text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium relative z-10"
                 >
                   {item.name}
-                </a>
+                </Link>
                 {hoveredItem === index && (
                   <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 animate-pulse"></div>
                 )}

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-
 import * as THREE from "three";
+import Link from "next/link";
 
 export default function Home() {
   const mountRef = useRef(null);
@@ -210,12 +210,18 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+            <Link
+              href="/services"
+              className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+            >
               Start Your Project
-            </button>
-            <button className="px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-all duration-300 backdrop-blur-sm">
+            </Link>
+            <a
+              href="https://jirapatpapai.netlify.app"
+              className="inline-block px-8 py-4 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/5 transition-all duration-300 backdrop-blur-sm"
+            >
               View Our Work
-            </button>
+            </a>
           </div>
 
           {/* Floating Stats */}
@@ -777,9 +783,9 @@ export default function Home() {
               Let's discuss your ideas and turn them into reality. Get in touch
               with our team today.
             </p>
-            <button className="px-12 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+            <Link href="/services" className="px-12 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
               Get Started Now
-            </button>
+            </Link>
           </div>
         </div>
       </section>
