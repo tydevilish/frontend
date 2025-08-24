@@ -19,7 +19,7 @@ const prompt = Prompt({
 });
 
 export const metadata = {
-  title: "My Next App",
+  title: "Nowhere Software",
   description: "Using Poppins + Prompt fonts",
 };
 

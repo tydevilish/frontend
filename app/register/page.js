@@ -110,6 +110,13 @@ export default function Register() {
     };
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push("/admin/users");
+    }
+  }, []);
+
   const steps = [
     { id: 1, title: "Personal Info", description: "Basic information" },
     {

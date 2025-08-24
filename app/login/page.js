@@ -100,6 +100,13 @@ export default function Login() {
     };
   }, []);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push("/admin/users");
+    }
+  }, []);
+
   const validateForm = () => {
     const newErrors = {};
 
@@ -138,9 +145,12 @@ export default function Login() {
 
       if (response.ok) {
         const data = await response.json();
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+        }
         // Handle successful login
         console.log("Login successful:", data);
-        // You can redirect or update app state here
+        window.location.href = "/admin/users";
       } else {
         const errorData = await response.json();
         setErrors({
