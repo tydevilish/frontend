@@ -718,10 +718,10 @@ export default function Register() {
                   {loading ? (
                     <div className="flex items-center">
                       <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin mr-2"></div>
-                      Creating Account...
+                      Registering...
                     </div>
                   ) : (
-                    "Create Account"
+                    "Register"
                   )}
                 </button>
               )}
