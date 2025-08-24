@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import * as THREE from "three";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const mountRef = useRef(null);
@@ -14,6 +15,7 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   // 3D Background Setup
   useEffect(() => {
