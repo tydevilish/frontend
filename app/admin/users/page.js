@@ -17,6 +17,7 @@ export default function Users() {
   const [sortOrder, setSortOrder] = useState("asc");
   const router = useRouter();
 
+
   // 3D Background Setup
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -116,8 +117,15 @@ export default function Users() {
   const fetchUsers = async () => {
     try {
       setLoading(true);
+      const token = localStorage.getItem("token");
       const response = await fetch(
-        "https://backend-nextjs-virid.vercel.app/api/users"
+        "https://backend-express-flax.vercel.app/api/users", {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+      }
+
       );
       if (response.ok) {
         const data = await response.json();
@@ -135,9 +143,15 @@ export default function Users() {
 
     try {
       setDeleteLoading(userId);
+      const token = localStorage.getItem("token");
       const response = await fetch(
-        `https://backend-nextjs-virid.vercel.app/api/users/${userId}`,
-        { method: "DELETE" }
+        `https://backend-express-flax.vercel.app/api/users/${userId}`,
+        {
+          method: "DELETE",
+          headers: {
+            'Authorization': `Bearer ${token}`
+          },
+        }
       );
 
       if (response.ok) {
@@ -152,6 +166,17 @@ export default function Users() {
 
   const handleEdit = (user) => {
     setEditingUser(user.id);
+
+    // แปลงวันที่ให้เป็นรูปแบบ yyyy-MM-dd สำหรับ input type="date"
+    let formattedBirthday = "";
+    if (user.birthday) {
+      const date = new Date(user.birthday);
+      // ตรวจสอบว่าเป็น valid date
+      if (!isNaN(date.getTime())) {
+        formattedBirthday = date.toISOString().split('T')[0];
+      }
+    }
+
     setEditData({
       id: user.id,
       username: user.username,
@@ -160,19 +185,27 @@ export default function Users() {
       lastname: user.lastname,
       address: user.address,
       sex: user.sex,
-      birthday: user.birthday,
+      birthday: formattedBirthday, // ใช้วันที่ที่แปลงแล้ว
     });
   };
 
   const handleUpdate = async () => {
     try {
       setUpdateLoading(true);
+      const token = localStorage.getItem("token");
+
+      // แยก id ออกจาก editData
+      const { id, ...updateData } = editData;
+
       const response = await fetch(
-        "https://backend-nextjs-virid.vercel.app/api/users",
+        `https://backend-express-flax.vercel.app/api/users/${id}`, // ส่ง id เป็น URL parameter
         {
           method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(editData),
+          headers: {
+            "Content-Type": "application/json",
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(updateData), // ส่งเฉพาะข้อมูลที่ต้องการอัพเดท ไม่รวม id
         }
       );
 
@@ -180,7 +213,7 @@ export default function Users() {
         const updatedUser = await response.json();
         setUsers(
           users.map((user) =>
-            user.id === editData.id ? { ...user, ...editData } : user
+            user.id === id ? { ...user, ...updateData } : user
           )
         );
         setEditingUser(null);
@@ -356,7 +389,7 @@ export default function Users() {
                         <div className="w-2 h-2 bg-gray-400 rounded-full mr-3"></div>
                         <span className="text-gray-400">Gender:</span>
                         <span className="text-white ml-2">
-                          {user.sex === "ชาย" ? "Male" : "Female"}
+                          {user.sex === "ชาย" || user.firstname === "นาย" ? "Male" : "Female"}
                         </span>
                       </div>
 
@@ -450,11 +483,13 @@ export default function Users() {
                   </label>
                   <input
                     type="text"
+
                     value={editData.username || ""}
                     onChange={(e) =>
                       setEditData({ ...editData, username: e.target.value })
                     }
-                    className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300"
+                    className="w-full px-4 py-3 bg-black/50 border border-white/20 rounded-xl text-gray-600 placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300"
+                    disabled
                   />
                 </div>
 
@@ -542,22 +577,20 @@ export default function Users() {
                           className="sr-only"
                         />
                         <div
-                          className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center transition-all duration-300 ${
-                            editData.sex === gender
-                              ? "border-white bg-white"
-                              : "border-white/40 group-hover:border-white/60"
-                          }`}
+                          className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center transition-all duration-300 ${editData.sex === gender
+                            ? "border-white bg-white"
+                            : "border-white/40 group-hover:border-white/60"
+                            }`}
                         >
                           {editData.sex === gender && (
                             <div className="w-2 h-2 rounded-full bg-black"></div>
                           )}
                         </div>
                         <span
-                          className={`transition-colors duration-300 ${
-                            editData.sex === gender
-                              ? "text-white"
-                              : "text-gray-400 group-hover:text-gray-300"
-                          }`}
+                          className={`transition-colors duration-300 ${editData.sex === gender
+                            ? "text-white"
+                            : "text-gray-400 group-hover:text-gray-300"
+                            }`}
                         >
                           {gender === "ชาย" ? "Male" : "Female"}
                         </span>

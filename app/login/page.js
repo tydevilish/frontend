@@ -132,7 +132,7 @@ export default function Login() {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://backend-nextjs-virid.vercel.app/api/auth/login",
+        "https://backend-express-flax.vercel.app/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -150,7 +150,6 @@ export default function Login() {
         if (data.token) {
           localStorage.setItem("token", data.token);
         }
-        // Handle successful login
         console.log("Login successful:", data);
         window.location.href = "/admin/users";
       } else {
@@ -236,11 +235,10 @@ export default function Login() {
                       onChange={(e) =>
                         handleInputChange("username", e.target.value)
                       }
-                      className={`w-full px-4 py-4 bg-black/40 border rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/30 focus:border-white/50 transition-all duration-300 group-hover:bg-black/50 ${
-                        errors.username
-                          ? "border-red-500 ring-2 ring-red-500/30 focus:ring-red-500/50"
-                          : "border-white/20 hover:border-white/40"
-                      }`}
+                      className={`w-full px-4 py-4 bg-black/40 border rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/30 focus:border-white/50 transition-all duration-300 group-hover:bg-black/50 ${errors.username
+                        ? "border-red-500 ring-2 ring-red-500/30 focus:ring-red-500/50"
+                        : "border-white/20 hover:border-white/40"
+                        }`}
                       placeholder="Enter your username"
                     />
 
@@ -296,11 +294,10 @@ export default function Login() {
                       onChange={(e) =>
                         handleInputChange("password", e.target.value)
                       }
-                      className={`w-full px-4 py-4 pr-12 bg-black/40 border rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/30 focus:border-white/50 transition-all duration-300 group-hover:bg-black/50 ${
-                        errors.password
-                          ? "border-red-500 ring-2 ring-red-500/30 focus:ring-red-500/50"
-                          : "border-white/20 hover:border-white/40"
-                      }`}
+                      className={`w-full px-4 py-4 pr-12 bg-black/40 border rounded-2xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/30 focus:border-white/50 transition-all duration-300 group-hover:bg-black/50 ${errors.password
+                        ? "border-red-500 ring-2 ring-red-500/30 focus:ring-red-500/50"
+                        : "border-white/20 hover:border-white/40"
+                        }`}
                       placeholder="Enter your password"
                     />
 
@@ -432,11 +429,10 @@ export default function Login() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-white to-gray-200 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
                   <div
-                    className={`relative w-full py-4 bg-white text-black rounded-2xl font-semibold transition-all duration-300 transform group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-white/20 ${
-                      loading
-                        ? "opacity-80 cursor-not-allowed"
-                        : "hover:bg-gray-100"
-                    }`}
+                    className={`relative w-full py-4 bg-white text-black rounded-2xl font-semibold transition-all duration-300 transform group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-white/20 ${loading
+                      ? "opacity-80 cursor-not-allowed"
+                      : "hover:bg-gray-100"
+                      }`}
                   >
                     {loading ? (
                       <div className="flex items-center justify-center">

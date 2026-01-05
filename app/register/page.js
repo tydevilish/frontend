@@ -178,7 +178,7 @@ export default function Register() {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://backend-nextjs-virid.vercel.app/api/users",
+        "https://backend-express-flax.vercel.app/api/auth/register",
         {
           method: "POST",
           headers: {
@@ -199,7 +199,6 @@ export default function Register() {
 
       if (response.ok) {
         setSuccess(true);
-        // หน่วงเวลา 3 วิก่อน redirect ไป login
         setTimeout(() => {
           router.push("/login");
         }, 2000);
@@ -282,9 +281,8 @@ export default function Register() {
                     <div
                       className="h-full bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full transition-all duration-700 ease-out relative"
                       style={{
-                        width: `${
-                          ((currentStep - 1) / (steps.length - 1)) * 100
-                        }%`,
+                        width: `${((currentStep - 1) / (steps.length - 1)) * 100
+                          }%`,
                       }}
                     >
                       {/* Shimmer Effect */}
@@ -299,13 +297,12 @@ export default function Register() {
                     >
                       {/* Step Circle */}
                       <div
-                        className={`relative w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 transform group-hover:scale-110 ${
-                          currentStep >= step.id
-                            ? "bg-gradient-to-br from-white to-gray-200 text-black shadow-lg shadow-white/20"
-                            : currentStep === step.id
+                        className={`relative w-16 h-16 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 transform group-hover:scale-110 ${currentStep >= step.id
+                          ? "bg-gradient-to-br from-white to-gray-200 text-black shadow-lg shadow-white/20"
+                          : currentStep === step.id
                             ? "bg-gradient-to-br from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/30 animate-pulse"
                             : "bg-black border-2 border-white/20 text-gray-400 hover:border-white/40"
-                        }`}
+                          }`}
                       >
                         {currentStep > step.id ? (
                           <div className="relative">
@@ -338,20 +335,18 @@ export default function Register() {
                       {/* Step Info */}
                       <div className="absolute top-20 text-center min-w-max">
                         <h4
-                          className={`text-sm font-semibold mb-1 transition-all duration-300 ${
-                            currentStep >= step.id
-                              ? "text-white"
-                              : "text-gray-500"
-                          }`}
+                          className={`text-sm font-semibold mb-1 transition-all duration-300 ${currentStep >= step.id
+                            ? "text-white"
+                            : "text-gray-500"
+                            }`}
                         >
                           {step.title}
                         </h4>
                         <p
-                          className={`text-xs transition-all duration-300 ${
-                            currentStep >= step.id
-                              ? "text-gray-300"
-                              : "text-gray-600"
-                          }`}
+                          className={`text-xs transition-all duration-300 ${currentStep >= step.id
+                            ? "text-gray-300"
+                            : "text-gray-600"
+                            }`}
                         >
                           {step.description}
                         </p>
@@ -443,11 +438,10 @@ export default function Register() {
                     onChange={(e) =>
                       handleInputChange("username", e.target.value)
                     }
-                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                      errors.username
-                        ? "border-red-500 ring-2 ring-red-500/20"
-                        : "border-white/20"
-                    }`}
+                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.username
+                      ? "border-red-500 ring-2 ring-red-500/20"
+                      : "border-white/20"
+                      }`}
                     placeholder="Enter your username"
                   />
                   {errors.username && (
@@ -466,11 +460,10 @@ export default function Register() {
                     onChange={(e) =>
                       handleInputChange("firstname", e.target.value)
                     }
-                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                      errors.firstname
-                        ? "border-red-500 ring-2 ring-red-500/20"
-                        : "border-white/20"
-                    }`}
+                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.firstname
+                      ? "border-red-500 ring-2 ring-red-500/20"
+                      : "border-white/20"
+                      }`}
                   >
                     <option value="">Select title</option>
                     <option value="นาย">Mr.</option>
@@ -495,11 +488,10 @@ export default function Register() {
                       onChange={(e) =>
                         handleInputChange("fullname", e.target.value)
                       }
-                      className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                        errors.fullname
-                          ? "border-red-500 ring-2 ring-red-500/20"
-                          : "border-white/20"
-                      }`}
+                      className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.fullname
+                        ? "border-red-500 ring-2 ring-red-500/20"
+                        : "border-white/20"
+                        }`}
                       placeholder="First name"
                     />
                     {errors.fullname && (
@@ -519,11 +511,10 @@ export default function Register() {
                       onChange={(e) =>
                         handleInputChange("lastname", e.target.value)
                       }
-                      className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                        errors.lastname
-                          ? "border-red-500 ring-2 ring-red-500/20"
-                          : "border-white/20"
-                      }`}
+                      className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.lastname
+                        ? "border-red-500 ring-2 ring-red-500/20"
+                        : "border-white/20"
+                        }`}
                       placeholder="Last name"
                     />
                     {errors.lastname && (
@@ -549,11 +540,10 @@ export default function Register() {
                       handleInputChange("address", e.target.value)
                     }
                     rows={4}
-                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 resize-none ${
-                      errors.address
-                        ? "border-red-500 ring-2 ring-red-500/20"
-                        : "border-white/20"
-                    }`}
+                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 resize-none ${errors.address
+                      ? "border-red-500 ring-2 ring-red-500/20"
+                      : "border-white/20"
+                      }`}
                     placeholder="Enter your address"
                   />
                   {errors.address && (
@@ -584,22 +574,20 @@ export default function Register() {
                           className="sr-only"
                         />
                         <div
-                          className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center transition-all duration-300 ${
-                            formData.sex === gender
-                              ? "border-white bg-white"
-                              : "border-white/40 group-hover:border-white/60"
-                          }`}
+                          className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center transition-all duration-300 ${formData.sex === gender
+                            ? "border-white bg-white"
+                            : "border-white/40 group-hover:border-white/60"
+                            }`}
                         >
                           {formData.sex === gender && (
                             <div className="w-2 h-2 rounded-full bg-black"></div>
                           )}
                         </div>
                         <span
-                          className={`transition-colors duration-300 ${
-                            formData.sex === gender
-                              ? "text-white"
-                              : "text-gray-400 group-hover:text-gray-300"
-                          }`}
+                          className={`transition-colors duration-300 ${formData.sex === gender
+                            ? "text-white"
+                            : "text-gray-400 group-hover:text-gray-300"
+                            }`}
                         >
                           {gender === "ชาย" ? "Male" : "Female"}
                         </span>
@@ -621,11 +609,10 @@ export default function Register() {
                     onChange={(e) =>
                       handleInputChange("birthday", e.target.value)
                     }
-                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                      errors.birthday
-                        ? "border-red-500 ring-2 ring-red-500/20"
-                        : "border-white/20"
-                    }`}
+                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.birthday
+                      ? "border-red-500 ring-2 ring-red-500/20"
+                      : "border-white/20"
+                      }`}
                   />
                   {errors.birthday && (
                     <p className="mt-1 text-sm text-red-400">
@@ -649,11 +636,10 @@ export default function Register() {
                     onChange={(e) =>
                       handleInputChange("password", e.target.value)
                     }
-                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                      errors.password
-                        ? "border-red-500 ring-2 ring-red-500/20"
-                        : "border-white/20"
-                    }`}
+                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.password
+                      ? "border-red-500 ring-2 ring-red-500/20"
+                      : "border-white/20"
+                      }`}
                     placeholder="Enter your password"
                   />
                   {errors.password && (
@@ -673,11 +659,10 @@ export default function Register() {
                     onChange={(e) =>
                       handleInputChange("confirmPassword", e.target.value)
                     }
-                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${
-                      errors.confirmPassword
-                        ? "border-red-500 ring-2 ring-red-500/20"
-                        : "border-white/20"
-                    }`}
+                    className={`w-full px-4 py-3 bg-black/50 border rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-white/20 focus:border-white/40 transition-all duration-300 ${errors.confirmPassword
+                      ? "border-red-500 ring-2 ring-red-500/20"
+                      : "border-white/20"
+                      }`}
                     placeholder="Confirm your password"
                   />
                   {errors.confirmPassword && (
@@ -700,11 +685,10 @@ export default function Register() {
               <button
                 onClick={handlePrevious}
                 disabled={currentStep === 1}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  currentStep === 1
-                    ? "bg-white/5 text-gray-500 cursor-not-allowed"
-                    : "bg-white/10 text-white hover:bg-white/20 border border-white/20 hover:border-white/40"
-                }`}
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${currentStep === 1
+                  ? "bg-white/5 text-gray-500 cursor-not-allowed"
+                  : "bg-white/10 text-white hover:bg-white/20 border border-white/20 hover:border-white/40"
+                  }`}
               >
                 Previous
               </button>
